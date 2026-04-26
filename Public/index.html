@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ExploreBuddy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+
+    <!-- Logo -->
+    <div class="sidebar-logo">
+      <div class="logo-mark">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><line x1="2" y1="12" x2="22" y2="12"/></svg>
+      </div>
+      <span>ExploreBuddy</span>
+    </div>
+
+    <!-- New Chat -->
+    <button class="new-chat-btn" id="new-chat-btn">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
+      Chat Baru
+    </button>
+
+    <!-- API Status -->
+    <div class="api-status" id="api-status">
+      <span class="status-dot" id="status-dot"></span>
+      <span class="status-text" id="status-text">Memeriksa koneksi…</span>
+    </div>
+
+    <!-- Destinasi Populer -->
+    <div class="sidebar-section">
+      <p class="section-label">✈️ Destinasi Populer</p>
+      <div class="destination-grid">
+        <button class="dest-badge" data-city="Bali">🏝️ Bali</button>
+        <button class="dest-badge" data-city="Yogyakarta">🏯 Jogja</button>
+        <button class="dest-badge" data-city="Surabaya">🦁 Surabaya</button>
+        <button class="dest-badge" data-city="Lombok">🌋 Lombok</button>
+        <button class="dest-badge" data-city="Bandung">🌄 Bandung</button>
+        <button class="dest-badge" data-city="Raja Ampat">🤿 Raja Ampat</button>
+        <button class="dest-badge" data-city="Labuan Bajo">🦎 Labuan Bajo</button>
+        <button class="dest-badge" data-city="Malang">🍎 Malang</button>
+      </div>
+    </div>
+
+    <!-- Packing Checklist -->
+    <div class="sidebar-section">
+      <p class="section-label">🎒 Packing Checklist</p>
+      <div class="checklist" id="checklist">
+        <label class="check-item"><input type="checkbox"> <span>Paspor / KTP</span></label>
+        <label class="check-item"><input type="checkbox"> <span>Tiket & Hotel</span></label>
+        <label class="check-item"><input type="checkbox"> <span>Pakaian (3–5 hari)</span></label>
+        <label class="check-item"><input type="checkbox"> <span>Obat-obatan</span></label>
+        <label class="check-item"><input type="checkbox"> <span>Charger & Power Bank</span></label>
+        <label class="check-item"><input type="checkbox"> <span>Kamera / HP</span></label>
+        <label class="check-item"><input type="checkbox"> <span>Sunscreen & toiletries</span></label>
+        <label class="check-item"><input type="checkbox"> <span>Uang tunai & kartu</span></label>
+      </div>
+      <button class="reset-check-btn" id="reset-checklist">Reset</button>
+    </div>
+
+    <!-- Riwayat Chat -->
+    <div class="sidebar-section history-section">
+      <p class="section-label">🕑 Riwayat Chat</p>
+      <div id="history-list" class="history-list">
+        <p class="no-history" id="no-history">Belum ada percakapan.</p>
+      </div>
+    </div>
+
+    <!-- Profile -->
+    <div class="sidebar-profile">
+      <div class="profile-avatar">C</div>
+      <div class="profile-info">
+        <span class="profile-name">Catur's Profile</span>
+        <span class="profile-sub">Traveler ✈️</span>
+      </div>
+    </div>
+
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main">
+
+    <!-- Top bar (mobile) -->
+    <header class="topbar">
+      <button class="menu-toggle" id="menu-toggle">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+      <span class="topbar-title">ExploreBuddy</span>
+    </header>
+
+    <!-- Chat area -->
+    <div class="chat-wrapper" id="chat-wrapper">
+
+      <!-- Empty / Welcome -->
+      <div class="empty-state" id="empty-state">
+        <div class="wave-bg"></div>
+        <div class="empty-content">
+          <div class="hero-label">Teman Perjalananmu</div>
+          <h1 class="hero-title"><em>Say yes</em><br>to your adventure</h1>
+          <p class="hero-sub">Tanyakan apa saja tentang wisata Indonesia — rekomendasi tempat, tips, itinerary, hingga kuliner terbaik!</p>
+          <div class="suggestion-grid">
+            <button class="sug-card" data-text="Rekomendasikan tempat wisata hits di Bali untuk liburan akhir tahun">
+              <span class="sug-icon">🏝️</span><span>Wisata hits Bali</span>
+            </button>
+            <button class="sug-card" data-text="Apa saja wisata keluarga terbaik di Surabaya?">
+              <span class="sug-icon">👨‍👩‍👧</span><span>Wisata keluarga Surabaya</span>
+            </button>
+            <button class="sug-card" data-text="Rekomendasikan kuliner wajib coba dan wisata di Yogyakarta">
+              <span class="sug-icon">🍜</span><span>Kuliner & wisata Jogja</span>
+            </button>
+            <button class="sug-card" data-text="Destinasi wisata alam terbaik di Lombok yang wajib dikunjungi">
+              <span class="sug-icon">🌋</span><span>Alam Lombok</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Chat messages -->
+      <div id="chat-box" class="chat-box"></div>
+
+    </div>
+
+    <!-- Input bar -->
+    <div class="input-area">
+      <div class="input-wrapper">
+        <textarea id="user-input" placeholder="Tanya destinasi, tips, atau itinerary perjalanan…" rows="1"></textarea>
+        <button id="send-btn" class="send-btn" disabled>
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+        </button>
+      </div>
+      <p class="disclaimer">ExploreBuddy dapat membuat kesalahan. Verifikasi sebelum bepergian.</p>
+    </div>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
