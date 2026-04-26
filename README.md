@@ -88,3 +88,4 @@ http://localhost:3000
 ---
 
 ## 📸 Tampilan
+![ExploreBuddy Dashboard](dashboard.png)
